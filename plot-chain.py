@@ -13,7 +13,7 @@ from matplotlib.gridspec import GridSpec
 figsize = (17, 8.5)
 plt.rc('text', usetex=False)
 
-parser = argparse.ArgumentParser(description='make a triangle plot and plto chain history')
+parser = argparse.ArgumentParser(description='make a triangle plot and plot chain history')
 parser.add_argument('chain_name', metavar='MCMC_CHAIN.out', help='text file with one chain link per line')
 parser.add_argument('--ncols', '-n', type=int, help='how many numbers/parameters to read from each line', default=0)
 args = parser.parse_args()
@@ -46,7 +46,7 @@ margin_x1, margin_x2, margin_xmid = margin_y1 * aspect, margin_y2 * aspect, marg
 gs_tri   = GridSpec(ncols, ncols, left=margin_x1, right=division, bottom=margin_y1, top=1.0 - margin_y2, wspace=0, hspace=0)
 gs_chain = GridSpec(ncols, 1, left=division + margin_x1, right=1.0 - margin_x2, bottom=margin_y1, top=1.0 - margin_y2, wspace=0, hspace=0)
 
-plt.figtext((margin_x1 + division) * 0.5, 1.0 - margin_y2, filename, va='top', ha='center')
+plt.figtext(division - margin_x2, 1.0 - margin_y2, filename, va='top', ha='right')
 
 ############################ triangle plot
 for i in range(ncols):
