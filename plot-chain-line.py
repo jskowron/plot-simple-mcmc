@@ -157,7 +157,7 @@ ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.tick_params(axis='both', which='both', direction='in', right=True, top=True)
 
-chain_choice_indx = np.random.choice(range(len(chain)), size=100, replace=False)
+chain_choice_indx = np.random.choice(range(len(chain)), size=min(100, len(chain)), replace=False)
 chain_choice = chain[chain_choice_indx]
 v = x_model - args.x0
 for params in chain_choice:
